@@ -1,4 +1,4 @@
-# nb2mail - send a jupyter notebook as an email
+# tw2mail - send a jupyter notebook as an email
 
 [![PyPI version](https://badge.fury.io/py/nb2mail.svg)](https://badge.fury.io/py/nb2mail)
 
@@ -11,7 +11,7 @@ send it via smtp.
 
 ## Usage
 
-`nb2mail` does not do anything by itself. It provides an export format
+`tw2mail` does not do anything by itself. It provides an export format
 ("mail") and postprocessor ("SendMailPostProcessor"). Please see the nbconvert
 documentation and example configuration for more information.
 
@@ -47,7 +47,7 @@ and then run:
 
 In the notebook metadata, you can set mail headers by adding a `nb2mail` block:
 
-    "nb2mail": {
+    "tw2mail": {
     "attachments": [
         "business_report_attachment.xlsx"
     ],
@@ -63,22 +63,3 @@ You can specify multiple recipients by seperating them with commas.
 Since CSS doesn't render the same in email, you may want to disable the pilcrows after each section.
 
     c.MailExporter.anchor_link_text = '' # disable pilcrow, requires nbconvert >= 5.2
-
-## Refences
-
-  * PyPI - https://pypi.python.org/pypi/nb2mail
-
-## TODO
-
-  * Prerender Math - no js in email
-  * Prettier templates
-  * Plotly - here is a workaround:
-
-        # py.iplot(fig, filename=‘dcm_ctr_subplots’)
-        # The above line is what you normally use to show your plots in the notebook
-        # You no longer need that and just need the stuff below
-
-        from IPython.display import Image
-
-        py.image.save_as(fig, filename='yahoo_dcm_ctr_subplots.png')
-        Image('yahoo_dcm_ctr_subplots.png')
