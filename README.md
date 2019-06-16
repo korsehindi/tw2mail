@@ -7,7 +7,7 @@ send it via smtp.
 
 ## Installation
 
-    pip install nb2mail
+    pip install tw2mail
 
 ## Usage
 
