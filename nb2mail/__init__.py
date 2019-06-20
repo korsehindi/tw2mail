@@ -4,8 +4,9 @@
 # Copyright (c) Neal Fultz 2016, 2019
 # Distributed under the terms of the Modified BSD License.
 
-import os
 
+import os
+import datetime
 import json
 import mimetypes
 import smtplib
@@ -142,6 +143,8 @@ class MailExporter(HTMLExporter):
               msg.attach(img)
 
         output = msg.as_string()
+        t = datetime.datetime.now() #fot debug
+        print(t)                    #fot debug
         return output, resources
 
 
