@@ -158,6 +158,8 @@ class SendMailPostProcessor(PostProcessorBase):
 
     def postprocess(self, input):
         " Heavily borrowed from https://www.mkyong.com/python/how-do-send-email-in-python-via-smtplib/ "
+        " https://docs.python.org/3/library/smtplib.html"
+        
         smtpserver = smtplib.SMTP(self.smtp_addr,self.smtp_port)
         smtpserver.ehlo()
         smtpserver.starttls()
