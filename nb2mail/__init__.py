@@ -11,6 +11,7 @@ import json
 import mimetypes
 import smtplib
 import sys
+import urllib
 
 from traitlets import default, Unicode, Int, Dict
 from traitlets.config import Config
@@ -46,7 +47,10 @@ class MailExporter(HTMLExporter):
     """
     Exports to a mail document (.mail)
     """
-
+    para = urllib.urlencode({'spam': 1, 'eggs': 2, 'bacon': 0})
+    fooo = urllib.urlopen("http://www.musi-cal.com/cgi-bin/query?%s" % para)
+    print fooo.read()
+    
     headers = Dict(help="Mail Headers", traits={
         'from': Unicode(help="From header"),
         'to': Unicode(help="Comma-separated To header"),
